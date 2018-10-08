@@ -1,68 +1,112 @@
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>大板同</title>
-<style type="text/css">
-#banner{
-	 margin:300px auto 0px; 
-	 width:780px; 
-	 height:80px; 
-	 font-size:40px;
-	 color:white;
-	 white-space: nowrap;
-     overflow: hidden;
+	<title>大板同</title>
+	<style>
+    @font-face {
+      font-family: 'zdy';
+      src: url("./fontawesome-webfont.ttf");
+    }
+    .icon-win:before {
+    	content:"\f17a";
+    	color: #fff;
+    }
+    .icon-win:hover:before {
+    	color: #555;
+    	cursor:pointer;
+    }
+    .icon-app:before {
+    	content:"\f179";
+    	color: #fff;
+    }
+     .icon-app:hover:before {
+    	color: #555;
+    	cursor:pointer;
+    }
+    .icon-and:before {
+    	content:"\f17b";
+    	color: #fff;
+    }
+    .icon-and:hover:before {
+    	color: #555;
+    	cursor:pointer;
+    }
+    .icon {
+    	font-family: 'zdy';
+    	margin-top: 10px;
+    	font-size: 40px;
+    }
+   	.icon span{
+   		margin-left: 20px;
+   		margin-right: 20px;
+   	}
+   	*{list-style: none;padding:0px;margin:0px;}
+    #app{height: 70px; overflow: hidden;}
+    #app li{height: 70px; font-size: 45px; font-weight: 800; color: #fff;}
+    .btdownlog{
+    	margin-top: 25px;
+		border: 0px;
+		background-color: #0aabe1;
+		color: white;
+		font-size: 18px;
+		height: 58px;
+		width: 120px;
+        font-weight: 500;
 	}
-
-
-#banner span{
-	display: inline-block;
-	}
-# download img{
-	
+	.btdownlog:hover{
+		background-color: #ff7f66;
+		cursor:pointer;
 	}
 </style>
 </head>
-<body style="background-color:#4cc1e7;"> 
-<div style="width:800px; margin:0 auto;">
-<div id="banner">
-	<span id="runner"><b>竞技与娱乐共存的应用，欢迎来到大板同官网，请点击下方对应系统图标下载游戏.
-	</b></span>
-	<span><b>竞技与娱乐共存的应用，欢迎来到大板同官网，请点击下方对应系统图标下载游戏.
-	</b></span>
-</div>
-<div style="margin:0 auto; width:700px; font-size:150px; ">
-	<span style="color:#fff46e; position:fixed; left:auto; top:100px; z-index:1;"><b>大板同</b></span>
-	<span style="padding-top:2px; padding-left:2px; color:#ffbf09; position:fixed; left:auto; top:100px; z-index:2;"><b>大板同</b>
-	<b style="font-size:20px; color:black;">更新日期：2017-11-13</b></span>
-</div>
-</div>
-<div id="download" style="margin:20px auto 20px; width:125px;">
-	<a download="yhdbt.apk" href="http://lazypos.pw:51888/yhdbt_711107.apk"><img src="./images/android.png" height="60" width="60"/></a>
-	<a download="yhdbt.exe" href="http://lazypos.pw:51888/yhdbt_steup_711107.exe"><img src="./images/windows.png" height="60" width="60"/></a>
-</div>
-<div style="margin:0 auto; width:160px; height:60px; background-color:#63cdff; border: solid 1px white; text-align:center;">
-<a href="http://yhdbt.pw/rule.html" target="_blank" style="text-decoration:none;color:white;display:block;">
-	<div style="margin-top:15px; font-size: 20px;"><b>游戏规则</b></div>
-</a>
-
-</div>
-<div style="margin:50px;">
-	<img src="./images/id.png">
-	<img src="./images/pl.png">
-</div>
-<script type="text/javascript">
-	 (function () {
-        var banner = document.getElementById('banner');
-		var runner = document.getElementById('runner');
-        var timer = window.setInterval(move, 10);
-      
-        function move() {
-            banner.scrollLeft++;
-            if (banner.scrollLeft > runner.scrollWidth+16) {
-                banner.scrollLeft = 0;
+<body style="text-align: center; background-color: #00a7ddb3; margin: 0 auto;">
+	<div>
+		<div style="margin-top: 20%;">
+			<span style="font-size:60px; color:#fdd994; font-weight:900;">大板同</span>
+			<span style="font-size:20px; color:#fff; font-weight:900; margin-left: 30px;">版本：8.0  更新：2018-10-08</span>
+		</div>
+		<div id="app">
+            <ul id="slide1">
+                <li>请点击下方对应图标下载客户端程序</li>
+                <li>现在，每天登陆都赠送积分</li>
+                <li>永久免费和支持多平台数据互通的大板同</li>
+            </ul>
+            <ul id="slide2"></ul>
+        </div>
+		<div class="icon">
+			<span class="icon-win" onclick="window.location.href='http://lazypos.pw:51888/dbtong_Setup_v8.1008.exe';"></span>
+			<span class="icon-app" onclick="window.location.href='http://baidu.com';"></span>
+			<span class="icon-and" onclick="window.location.href='http://baidu.com';"></span>
+		</div>
+		<div class="bthelp">
+            <a href="/logdown?log=run.log" target="_black"><button class="btdownlog">支持作者</button></a>
+        </div>       
+	</div>
+ 	<script>
+        var speed = 10;
+        var app = document.getElementById('app');
+        var slide1 = document.getElementById('slide1');
+        var slide2 = document.getElementById('slide2');
+        slide2.innerHTML = slide1.innerHTML;
+        var timer ,timeout;
+        function marqueeMethods(){
+            clearTimeout(timeout)
+            console.log(slide2.offsetTop,app.scrollTop)
+            if(slide2.offsetTop-app.scrollTop<= 210){
+                app.scrollTop = app.scrollTop - slide1.offsetHeight;
+            }else{
+                app.scrollTop++;
+                if(app.scrollTop%70==0){
+                    clearTimeout(timeout);
+                    clearInterval(timer);
+                    timeout = setTimeout(function(){
+                        app.scrollTop++;
+                        return timer = setInterval(marqueeMethods,speed);
+                    },2000);
+                }
             }
         }
-    })();
-</script>
+        timer = setInterval(marqueeMethods,speed);
+    </script>
 </body>
 </html>
