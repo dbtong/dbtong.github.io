@@ -63,7 +63,7 @@
 	<div>
 		<div style="margin-top: 20%;">
 			<span style="font-size:60px; color:#fdd994; font-weight:900;">大板同</span>
-			<span style="font-size:20px; color:#fff; font-weight:900; margin-left: 30px;">版本：8.0  更新：2018-10-08</span>
+			<span style="font-size:20px; color:#fff; font-weight:900; margin-left: 30px;">版本：8.0  更新：2018-10-10</span>
 		</div>
 		<div id="app">
             <ul id="slide1">
@@ -76,10 +76,10 @@
 		<div class="icon">
 			<span class="icon-win" onclick="window.location.href='http://lazypos.pw:51888/dbtong_Setup_v8.1008.exe';"></span>
 			<span class="icon-app" onclick="window.location.href='http://baidu.com';"></span>
-			<span class="icon-and" onclick="window.location.href='http://baidu.com';"></span>
+			<span class="icon-and" onclick="window.location.href='http://lazypos.pw:51888/dbtong8.1010.apk';"></span>
 		</div>
 		<div class="bthelp">
-            <a href="/logdown?log=run.log" target="_black"><button class="btdownlog">支持作者</button></a>
+            <a href="./help.html" target="_black"><button class="btdownlog">支持作者</button></a>
         </div>       
 	</div>
  	<script>
@@ -92,7 +92,7 @@
         function marqueeMethods(){
             clearTimeout(timeout)
             console.log(slide2.offsetTop,app.scrollTop)
-            if(slide2.offsetTop-app.scrollTop<= 210){
+            if(slide2.offsetTop-app.scrollTop<= 300){
                 app.scrollTop = app.scrollTop - slide1.offsetHeight;
             }else{
                 app.scrollTop++;
