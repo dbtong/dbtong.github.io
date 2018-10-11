@@ -42,7 +42,7 @@
    	}
    	*{list-style: none;padding:0px;margin:0px;}
     #app{height: 70px; overflow: hidden;}
-    #app li{height: 70px; font-size: 45px; font-weight: 800; color: #fff;}
+    #app li{height: 70px; overflow: hidden; font-size: 45px; font-weight: 800; color: #fff; white-space: nowrap;}
     .btdownlog{
     	margin-top: 25px;
 		border: 0px;
@@ -92,7 +92,7 @@
         function marqueeMethods(){
             clearTimeout(timeout)
             console.log(slide2.offsetTop,app.scrollTop)
-            if(slide2.offsetTop-app.scrollTop<= 345){
+            if(slide2.offsetTop-app.scrollTop<= 70){
                 app.scrollTop = app.scrollTop - slide1.offsetHeight;
             }else{
                 app.scrollTop++;
