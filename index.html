@@ -61,9 +61,9 @@
 </head>
 <body style="text-align: center; background-color: #00a7ddb3; margin: 0 auto;">
 	<div>
-		<div style="margin-top: 20%;">
+		<div style="margin-top: 18%;">
 			<span style="font-size:60px; color:#fdd994; font-weight:900;">大板同</span>
-			<span style="font-size:20px; color:#fff; font-weight:900; margin-left: 30px;">版本：8.0  更新：2018-10-10</span>
+			<span style="font-size:20px; color:#fff; font-weight:900; margin-left: 30px;">版本：8.0  更新：2018-10-11</span>
 		</div>
 		<div id="app">
             <ul id="slide1">
@@ -74,9 +74,9 @@
             <ul id="slide2"></ul>
         </div>
 		<div class="icon">
-			<span class="icon-win" onclick="window.location.href='http://lazypos.pw:51888/dbtong_Setup_v8.1008.exe';"></span>
-			<span class="icon-app" onclick="window.location.href='http://baidu.com';"></span>
-			<span class="icon-and" onclick="window.location.href='http://lazypos.pw:51888/dbtong8.1010.apk';"></span>
+			<span class="icon-win" onclick="window.location.href='http://lazypos.pw:51888/dbtong_Setup_v8.1011.exe';"></span>
+			<span class="icon-app" onclick="window.location.href='./help.html';"></span>
+			<span class="icon-and" onclick="window.location.href='http://lazypos.pw:51888/dbtong8.1011.apk';"></span>
 		</div>
 		<div class="bthelp">
             <a href="./help.html" target="_black"><button class="btdownlog">支持作者</button></a>
@@ -92,7 +92,7 @@
         function marqueeMethods(){
             clearTimeout(timeout)
             console.log(slide2.offsetTop,app.scrollTop)
-            if(slide2.offsetTop-app.scrollTop<= 300){
+            if(slide2.offsetTop-app.scrollTop<= 345){
                 app.scrollTop = app.scrollTop - slide1.offsetHeight;
             }else{
                 app.scrollTop++;
