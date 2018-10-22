@@ -113,7 +113,7 @@
         var timer ,timeout;
         function marqueeMethods(){
             clearTimeout(timeout)
-            console.log(slide2.offsetTop,app.scrollTop)
+            //console.log(slide2.offsetTop,app.scrollTop)
             if(slide2.offsetTop-app.scrollTop<= 70){
                 app.scrollTop = app.scrollTop - slide1.offsetHeight;
             }else{
