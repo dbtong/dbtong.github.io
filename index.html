@@ -1,89 +1,152 @@
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>大板同日记</title>
-        <meta http-equiv="keywords" content="dbtong.cn,大板同,余杭大板同,杭州大板同,dbtong">
-        <meta name="keywords" content="dbtong.cn,大板同,余杭大板同,杭州大板同,dbtong">
-        <meta name="description" content="大板同官网">
-        <link rel="shortcut icon" href="favicon.ico">
-        <base target="_blank" />
-    </head>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大板同 - 传统扑克运动</title>
     <style>
-        .by{
-            background-color: rgb(217, 238, 255);
+        :root {
+            --primary-color: #3498db;
+            --highlight-color: #e74c3c;
+            --success-color: #2ecc71;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        header {
             text-align: center;
+            margin-bottom: 30px;
         }
-        .ban{
-            padding-bottom: 0.5em;
+        h1 {
+            color: #2c3e50;
+            font-weight: 300;
         }
-        .down{
+        .section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .highlight-section {
+            border-left: 4px solid var(--highlight-color);
+            background-color: #fff9f9;
+        }
+        .success-section {
+            border-left: 4px solid var(--success-color);
+            background-color: #f9fff9;
+        }
+        .update-log {
+            font-size: 0.9em;
+            color: #666;
+        }
+        .download-links {
             display: flex;
-            flex-direction: row;
-            justify-content:center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
         }
-        .item{
-            padding: 2em 2em 0em 2em;
-        }
-        a{
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
             text-decoration: none;
-            color: rgb(42, 42, 250);
+            border-radius: 4px;
+            font-size: 1em;
+            transition: all 0.3s;
+            text-align: center;
+            min-width: 120px;
         }
-        .desc{
-            font-weight: bolder;
-            font-size: large;
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-        .kf{
-            width: 200px;
+        .btn-highlight {
+            background-color: var(--highlight-color);
         }
-        .bt{
-            background-color: aliceblue;
-            border: solid 1px #333333;
+        .btn-highlight:hover {
+            background-color: #c0392b;
+        }
+        .btn-success {
+            background-color: var(--success-color);
+        }
+        .btn-success:hover {
+            background-color: #27ae60;
+        }
+        .notice {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
             padding: 10px;
-            font-size: xx-large;
-            color: red;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-size: 0.9em;
         }
-        .bt:hover{
-            background-color: rgb(203, 231, 255);
-            cursor:pointer;
+        .notice strong {
+            color: var(--highlight-color);
         }
-		.title{
-			font-size:50px;
-		}
+        .qr-code {
+            text-align: center;
+            margin: 20px 0;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.8em;
+            color: #7f8c8d;
+        }
     </style>
-    <body class="by">
-        <div class="title">
-            <p>大板同</p>
-        </div>
-        <div style="color: red; font-size: large;">更新日志：</br>
-            2025.04.18 支持自助充值，自助解封</br>
-            2024.03.10 升级自动封号系统，优化运动环境</br>
-            2023.10.27 修改偶尔出现的积分错误问题</br>
-            2023.07.06 优化逃跑惩罚，另两家获得补偿
-        </div>
-        </br>
-		<div>
-		大板同是一种流行在临平、仁和、海宁等地周围的古老的扑克运动，相传由三国时期火烧连营的陆逊所发明，距今已有2000年的历史。</br>
-		玩法老少咸宜，很讲究策略，需要计算分数，不是跑得快就能赢，研究表明，此项运动有益大脑健康，有效防止老年痴呆。</br>
-		玩法主要是由4副扑克组成，四人轮番摸排直至牌完。其中5/10/K为分数，双方轮流出牌直至要不起的时候，把场内积分拿走。</br>
-		大板同还有一些变种，比如仁和地区会再多加一副牌等等，但主要规则是不变的。这里的规则是最古老的三国玩法，是四副牌的。</br>
-		因此搞这个网站的目的主要是传承中国文化，区域地域文化，非物质遗传文化，让更多的人了解到这个古老运动。</br>
-		专为丰富老年退休后生活，拒绝任何形式的赌博行为，感谢大家支持。</br>
-		</div></br></br>
-        <div><a href="http://tuiliwu.com:51888/jc" style="font-size: x-large;">自助解封 点这里</a></div></br></br>
+</head>
+<body>
+    <h2 style="text-align: center; font-size: 3rem;">大板同</h2>
+    <div class="section">
+        <p>大板同是一种流行于临平、仁和、海宁等地的古老扑克运动，相传由三国时期陆逊发明，已有2000年历史。</p>
+        <p>游戏使用4副扑克，四人轮番摸牌。5/10/K为分数牌，讲究策略而非跑得快，研究表明有益大脑健康，能有效预防老年痴呆。</p>
+        <p>我们致力于传承这项非物质文化遗产，丰富老年生活，坚决反对任何赌博行为。</p>
+    </div>
 
-			<a href="http://busytech.cn/pay/test111"><button class="bt desc">充值点此（手机）</button></a></br></br>
-        <div>
-            <p style="font-size: x-large; color: red;">下载地址：（注意，近期短信线路调整，预计经常存在验证码收不到情况，预计要到6月底）</p>
-            <div>安卓： <a href="http://fir.dbtong.cn/dbtong">http://fir.dbtong.cn/dbtong</a></div> </div>
-            <div>电脑：<a href=" https://dbtong.lanzoul.com/iRHEh096iamb"> https://dbtong.lanzoul.com/iRHEh096iamb</a></div> </div>
-            <p>苹果：需要借助电脑安装，步骤如下：</p>
-                <a href="https://note.youdao.com/ynoteshare/mobile.html?id=9de8518b22bb50c399881a9fccff4224&type=note&_time=1660219344612#/">
-                    https://note.youdao.com/ynoteshare/mobile.html?id=9de8518b22bb50c399881a9fccff4224&type=note&_time=1660219344612#/
-                </a>
-            <p class="desc">微信扫描下方二维码获取玩法</p>
+    <div class="section highlight-section">
+        <h2>账户服务</h2>
+        <div class="notice">
+            <strong>重要通知：</strong>短信验证码服务正在调整，可能出现接收延迟，预计6月底恢复
+        </div>
+        <div class="download-links">
+            <a href="http://tuiliwu.com:51888/jc" target="_blank" class="btn btn-success">自助解封</a>
+            <a href="http://busytech.cn/pay/test111" target="_blank" class="btn btn-highlight">手机充值</a>
+        </div>
+    </div>
+
+    <div class="section success-section">
+        <h2>下载游戏</h2>
+        <div class="download-links">
+            <a href="http://fir.dbtong.cn/dbtong" class="btn">安卓版下载</a>
+            <a href="https://dbtong.lanzoul.com/iRHEh096iamb" class="btn">电脑版下载</a>
+            <a href="https://note.youdao.com/ynoteshare/mobile.html?id=9de8518b22bb50c399881a9fccff4224" class="btn">iOS安装指南</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>更新日志</h2>
+        <div class="update-log">
+            <p><strong>2025.04.18</strong> 支持自助充值，自助解封</p>
+            <p><strong>2024.03.10</strong> 升级自动封号系统，优化运动环境</p>
+            <p><strong>2023.10.27</strong> 修复积分显示错误</p>
+            <p><strong>2023.07.06</strong> 优化逃跑惩罚机制</p>
+        </div>
+    </div>
+    <div class="qr-code">
+            <p>微信扫码获取玩法指南</p>
             <img src="kf.png" class="kf">
         </div>
-		<div><a href="https://beian.miit.gov.cn/">浙ICP备17016108号</a></div>
-    </body>
+    <footer>
+        <p>浙ICP备17016108号</p>
+    </footer>
+</body>
 </html>

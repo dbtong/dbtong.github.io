@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>大板同日记</title>
+        <meta http-equiv="keywords" content="dbtong.cn,大板同,余杭大板同,杭州大板同,dbtong">
+        <meta name="keywords" content="dbtong.cn,大板同,余杭大板同,杭州大板同,dbtong">
+        <meta name="description" content="大板同官网">
+        <link rel="shortcut icon" href="favicon.ico">
+        <base target="_blank" />
+    </head>
+    <style>
+        .by{
+            background-color: rgb(217, 238, 255);
+            text-align: center;
+        }
+        .ban{
+            padding-bottom: 0.5em;
+        }
+        .down{
+            display: flex;
+            flex-direction: row;
+            justify-content:center;
+        }
+        .item{
+            padding: 2em 2em 0em 2em;
+        }
+        a{
+            text-decoration: none;
+            color: rgb(42, 42, 250);
+        }
+        .desc{
+            font-weight: bolder;
+            font-size: large;
+        }
+        .kf{
+            width: 200px;
+        }
+        .bt{
+            background-color: aliceblue;
+            border: solid 1px #333333;
+            padding: 10px;
+            font-size: xx-large;
+            color: red;
+        }
+        .bt:hover{
+            background-color: rgb(203, 231, 255);
+            cursor:pointer;
+        }
+		.title{
+			font-size:50px;
+		}
+    </style>
+    <body class="by">
+        <div class="title">
+            <p>大板同</p>
+        </div>
+        <div style="color: red; font-size: large;">更新日志：</br>
+            2025.04.18 支持自助充值，自助解封</br>
+            2024.03.10 升级自动封号系统，优化运动环境</br>
+            2023.10.27 修改偶尔出现的积分错误问题</br>
+            2023.07.06 优化逃跑惩罚，另两家获得补偿
+        </div>
+        </br>
+		<div>
+		大板同是一种流行在临平、仁和、海宁等地周围的古老的扑克运动，相传由三国时期火烧连营的陆逊所发明，距今已有2000年的历史。</br>
+		玩法老少咸宜，很讲究策略，需要计算分数，不是跑得快就能赢，研究表明，此项运动有益大脑健康，有效防止老年痴呆。</br>
+		玩法主要是由4副扑克组成，四人轮番摸排直至牌完。其中5/10/K为分数，双方轮流出牌直至要不起的时候，把场内积分拿走。</br>
+		大板同还有一些变种，比如仁和地区会再多加一副牌等等，但主要规则是不变的。这里的规则是最古老的三国玩法，是四副牌的。</br>
+		因此搞这个网站的目的主要是传承中国文化，区域地域文化，非物质遗传文化，让更多的人了解到这个古老运动。</br>
+		专为丰富老年退休后生活，拒绝任何形式的赌博行为，感谢大家支持。</br>
+		</div></br></br>
+        <div><a href="http://tuiliwu.com:51888/jc" style="font-size: x-large;">自助解封 点这里</a></div></br></br>
+
+			<a href="http://busytech.cn/pay/test111"><button class="bt desc">充值点此（手机）</button></a></br></br>
+        <div>
+            <p style="font-size: x-large; color: red;">下载地址：（注意，近期短信线路调整，预计经常存在验证码收不到情况，预计要到6月底）</p>
+            <div>安卓： <a href="http://fir.dbtong.cn/dbtong">http://fir.dbtong.cn/dbtong</a></div> </div>
+            <div>电脑：<a href=" https://dbtong.lanzoul.com/iRHEh096iamb"> https://dbtong.lanzoul.com/iRHEh096iamb</a></div> </div>
+            <p>苹果：需要借助电脑安装，步骤如下：</p>
+                <a href="https://note.youdao.com/ynoteshare/mobile.html?id=9de8518b22bb50c399881a9fccff4224&type=note&_time=1660219344612#/">
+                    https://note.youdao.com/ynoteshare/mobile.html?id=9de8518b22bb50c399881a9fccff4224&type=note&_time=1660219344612#/
+                </a>
+            <p class="desc">微信扫描下方二维码获取玩法</p>
+            <img src="kf.png" class="kf">
+        </div>
+		<div><a href="https://beian.miit.gov.cn/">浙ICP备17016108号</a></div>
+    </body>
+</html>
