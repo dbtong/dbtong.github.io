@@ -2,156 +2,648 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#8b1a1a">
+    <meta name="format-detection" content="telephone=no">
     <title>大板同 - 传统智力运动</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap');
+
         :root {
-            --primary-color: #3498db;
-            --highlight-color: #e74c3c;
-            --success-color: #2ecc71;
+            /* 朱红 + 墨黑 + 金色 主调 */
+            --c-zhu: #8b1a1a;          /* 朱红 - 主色 */
+            --c-zhu-light: #b8302f;
+            --c-zhu-dark: #6b0f0f;
+            --c-mo: #1a1a1a;            /* 墨黑 - 文字 */
+            --c-mo-soft: #2d2d2d;
+            --c-jin: #c9a96e;           /* 金色 - 点缀 */
+            --c-jin-light: #e8d5a3;
+            --c-paper: #f5ecd7;         /* 宣纸 - 背景 */
+            --c-paper-light: #fbf6e8;
+            --c-paper-dark: #e8dcc0;
+            --c-ink: #3a2820;
+            --c-ink-light: #6b5544;
         }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.85;
+            color: var(--c-ink);
+            max-width: 880px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
+            padding: 24px 20px 40px;
+            background-color: var(--c-paper);
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(201, 169, 110, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(139, 26, 26, 0.04) 0%, transparent 50%),
+                repeating-linear-gradient(45deg, transparent, transparent 80px, rgba(139, 26, 26, 0.015) 80px, rgba(139, 26, 26, 0.015) 81px);
+            -webkit-font-smoothing: antialiased;
+            position: relative;
         }
+
+        /* 顶部装饰条 - 仿古卷轴 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg,
+                var(--c-zhu-dark) 0%, var(--c-zhu) 25%, var(--c-jin) 50%, var(--c-zhu) 75%, var(--c-zhu-dark) 100%);
+            z-index: 100;
+            box-shadow: 0 1px 4px rgba(139, 26, 26, 0.3);
+        }
+
+        /* 页脚装饰条 */
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg,
+                var(--c-zhu-dark) 0%, var(--c-zhu) 25%, var(--c-jin) 50%, var(--c-zhu) 75%, var(--c-zhu-dark) 100%);
+            z-index: 100;
+            box-shadow: 0 -1px 4px rgba(139, 26, 26, 0.3);
+        }
+
+        /* ========== 头部 ========== */
         header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 36px;
+            padding: 32px 16px 28px;
+            position: relative;
         }
-        h1 {
-            color: #2c3e50;
-            font-weight: 300;
+
+        /* 印章装饰 */
+        header::before,
+        header::after {
+            content: '';
+            position: absolute;
+            width: 36px;
+            height: 36px;
+            border: 2px solid var(--c-zhu);
+            border-radius: 4px;
+            opacity: 0.6;
         }
+        header::before {
+            top: 20px;
+            left: 20px;
+            transform: rotate(-15deg);
+        }
+        header::after {
+            bottom: 20px;
+            right: 20px;
+            transform: rotate(15deg);
+        }
+
+        .title {
+            font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--c-zhu);
+            letter-spacing: 8px;
+            margin-bottom: 12px;
+            text-indent: 8px; /* 字间距补偿 */
+            text-shadow: 2px 2px 0 rgba(139, 26, 26, 0.08);
+            position: relative;
+            display: inline-block;
+        }
+
+        .title::before,
+        .title::after {
+            content: '❖';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--c-jin);
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+        .title::before { left: -32px; }
+        .title::after { right: -32px; }
+
+        .subtitle {
+            font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            color: var(--c-ink-light);
+            font-size: 0.95rem;
+            letter-spacing: 4px;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .subtitle::before { content: '〔'; color: var(--c-jin); margin-right: 4px; }
+        .subtitle::after { content: '〕'; color: var(--c-jin); margin-left: 4px; }
+
+        /* 分割装饰线 */
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 20px auto;
+            color: var(--c-jin);
+            font-size: 0.9rem;
+            max-width: 240px;
+        }
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--c-jin), transparent);
+        }
+
+        /* ========== 通用卡片 ========== */
         .section {
-            background: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background:
+                linear-gradient(135deg, var(--c-paper-light) 0%, var(--c-paper) 100%);
+            padding: 28px 28px 26px;
+            margin-bottom: 24px;
+            border-radius: 4px;
+            position: relative;
+            box-shadow:
+                0 1px 3px rgba(58, 40, 32, 0.08),
+                inset 0 0 0 1px var(--c-paper-dark);
         }
+
+        /* 四角云纹装饰 */
+        .section::before,
+        .section::after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--c-jin);
+            opacity: 0.5;
+        }
+        .section::before {
+            top: -2px; left: -2px;
+            border-right: none;
+            border-bottom: none;
+        }
+        .section::after {
+            bottom: -2px; right: -2px;
+            border-left: none;
+            border-top: none;
+        }
+
+        /* 卡片标题 */
+        h2 {
+            font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            color: var(--c-zhu);
+            font-weight: 700;
+            margin: 0 0 20px;
+            font-size: 1.4rem;
+            letter-spacing: 3px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 14px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: var(--c-jin);
+        }
+
+        h2 .icon {
+            display: inline-block;
+            margin: 0 8px;
+            color: var(--c-jin);
+            font-size: 1rem;
+            vertical-align: middle;
+        }
+
         .section p {
             text-indent: 2rem;
+            margin: 0.7em 0;
+            color: var(--c-ink);
+            font-size: 1rem;
+            letter-spacing: 0.5px;
         }
-        .highlight-section {
-            border-left: 4px solid var(--highlight-color);
-            background-color: #fff9f9;
-        }
-        .success-section {
-            border-left: 4px solid var(--success-color);
-            background-color: #f9fff9;
-        }
-        .update-log {
-            font-size: 0.9em;
-            color: #666;
-        }
-        .download-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 15px 0;
-        }
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 1em;
-            transition: all 0.3s;
-            text-align: center;
-            min-width: 120px;
-        }
-        .btn:hover {
-            background-color: #2980b9;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .btn-highlight {
-            background-color: var(--highlight-color);
-        }
-        .btn-highlight:hover {
-            background-color: #c0392b;
-        }
-        .btn-success {
-            background-color: var(--success-color);
-        }
-        .btn-success:hover {
-            background-color: #27ae60;
-        }
+
+        /* ========== 通知条 ========== */
         .notice {
-            background-color: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 10px;
-            margin: 15px 0;
-            border-radius: 4px;
-            font-size: 0.9em;
+            background:
+                linear-gradient(90deg,
+                    rgba(201, 169, 110, 0.15) 0%,
+                    rgba(201, 169, 110, 0.25) 50%,
+                    rgba(201, 169, 110, 0.15) 100%);
+            border: 1px solid var(--c-jin);
+            border-left: 4px solid var(--c-zhu);
+            padding: 14px 18px;
+            margin-bottom: 24px;
+            border-radius: 2px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--c-ink);
+            position: relative;
         }
+
+        .notice::before {
+            content: '◈';
+            color: var(--c-zhu);
+            font-size: 1.1rem;
+        }
+
         .notice strong {
-            color: var(--highlight-color);
+            color: var(--c-zhu);
+            font-weight: 700;
         }
+
+        /* ========== 按钮 ========== */
+        .download-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 14px;
+            margin: 18px 0 12px;
+        }
+
+        .btn {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 14px;
+            background:
+                linear-gradient(135deg, var(--c-zhu) 0%, var(--c-zhu-dark) 100%);
+            color: var(--c-paper-light);
+            text-decoration: none;
+            border-radius: 2px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            text-align: center;
+            min-height: 72px;
+            border: 1px solid var(--c-jin);
+            box-shadow:
+                0 2px 4px rgba(107, 15, 15, 0.25),
+                inset 0 1px 0 rgba(232, 213, 163, 0.2);
+            overflow: hidden;
+            letter-spacing: 1px;
+        }
+
+        /* 按钮右上角云纹 */
+        .btn::before {
+            content: '❀';
+            position: absolute;
+            top: 2px;
+            right: 6px;
+            font-size: 0.7rem;
+            color: var(--c-jin);
+            opacity: 0.6;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(232, 213, 163, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, var(--c-zhu-light) 0%, var(--c-zhu) 100%);
+            transform: translateY(-3px);
+            box-shadow:
+                0 6px 12px rgba(107, 15, 15, 0.35),
+                inset 0 1px 0 rgba(232, 213, 163, 0.3);
+        }
+        .btn:hover::after { left: 100%; }
+        .btn:active { transform: translateY(-1px); }
+
+        .btn .btn-title {
+            font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            letter-spacing: 2px;
+        }
+
+        .btn .btn-sub {
+            font-size: 0.78rem;
+            opacity: 0.85;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--c-mo-soft) 0%, var(--c-mo) 100%);
+        }
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #3d3d3d 0%, var(--c-mo-soft) 100%);
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--c-jin) 0%, #a8854d 100%);
+            color: var(--c-mo);
+        }
+        .btn-gold:hover {
+            background: linear-gradient(135deg, var(--c-jin-light) 0%, var(--c-jin) 100%);
+        }
+
+        /* ========== 更新日志 ========== */
+        .update-log {
+            font-size: 0.95em;
+            color: var(--c-ink-light);
+        }
+        .update-log p {
+            text-indent: 0;
+            padding: 12px 0;
+            border-bottom: 1px dashed var(--c-paper-dark);
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+            color: var(--c-ink);
+        }
+        .update-log p:last-child { border-bottom: none; }
+
+        .update-log strong {
+            color: var(--c-zhu);
+            font-weight: 600;
+            min-width: 100px;
+            font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            font-size: 1em;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+            position: relative;
+            padding-left: 14px;
+        }
+        .update-log strong::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--c-jin);
+            font-size: 0.6em;
+            top: 0.3em;
+        }
+
+        /* ========== 二维码 ========== */
         .qr-code {
             text-align: center;
-            margin: 20px 0;
+            margin: 28px 0 24px;
+            padding: 24px;
+            background:
+                linear-gradient(135deg, var(--c-paper-light) 0%, var(--c-paper) 100%);
+            border-radius: 4px;
+            box-shadow:
+                0 1px 3px rgba(58, 40, 32, 0.08),
+                inset 0 0 0 1px var(--c-paper-dark);
+            position: relative;
         }
+        .qr-code::before,
+        .qr-code::after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--c-jin);
+            opacity: 0.5;
+        }
+        .qr-code::before {
+            top: -2px; left: -2px;
+            border-right: none; border-bottom: none;
+        }
+        .qr-code::after {
+            bottom: -2px; right: -2px;
+            border-left: none; border-top: none;
+        }
+
+        .qr-code p {
+            color: var(--c-ink-light);
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+            font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        .qr-code img {
+            max-width: 180px;
+            border: 1px solid var(--c-jin);
+            padding: 6px;
+            background: var(--c-paper-light);
+            border-radius: 2px;
+        }
+
+        /* ========== 页脚 ========== */
         footer {
             text-align: center;
-            margin-top: 30px;
-            font-size: 0.8em;
-            color: #7f8c8d;
+            margin-top: 36px;
+            padding: 20px;
+            font-size: 0.82em;
+            color: var(--c-ink-light);
+            font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            letter-spacing:2px;
+            position: relative;
+            font-weight: 500;
+        }
+        footer::before {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 1px;
+            background: var(--c-jin);
+            margin: 0 auto 16px;
+        }
+
+        /* ========== 提示行 ========== */
+        .tip {
+            text-indent: 0;
+            font-size: 0.88em;
+            color: var(--c-ink-light);
+            margin-top: 14px;
+            padding: 8px 14px;
+            background: rgba(201, 169, 110, 0.1);
+            border-left: 3px solid var(--c-jin);
+            border-radius: 2px;
+        }
+        .tip::before { content: '※ '; color: var(--c-jin); }
+
+        /* ========== 移动端 ========== */
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 14px 32px;
+                line-height: 1.75;
+            }
+            header {
+                padding: 24px 8px 20px;
+                margin-bottom: 24px;
+            }
+            header::before, header::after {
+                width: 28px; height: 28px;
+            }
+            header::before { top: 14px; left: 8px; }
+            header::after { bottom: 14px; right: 8px; }
+
+            .title {
+                font-size: 2.4rem;
+                letter-spacing: 6px;
+                text-indent: 6px;
+            }
+            .title::before { left: -24px; }
+            .title::after { right: -24px; }
+
+            .subtitle {
+                font-size: 0.82rem;
+                letter-spacing: 3px;
+            }
+
+            .section {
+                padding: 20px 18px;
+                margin-bottom: 18px;
+            }
+            h2 {
+                font-size: 1.35rem;
+                margin-bottom: 16px;
+                padding-bottom: 12px;
+            }
+            .section p {
+                font-size: 0.95rem;
+            }
+
+            .download-links {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .btn {
+                padding: 12px 8px;
+                min-height: 62px;
+            }
+            .btn .btn-title { font-size: 1.05rem; }
+            .btn .btn-sub { font-size: 0.72rem; }
+
+            .notice {
+                padding: 10px 14px;
+                font-size: 0.88rem;
+            }
+
+            .update-log p {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+                padding: 10px 0;
+            }
+            .update-log strong {
+                min-width: auto;
+                font-size: 0.95em;
+            }
+
+            .qr-code {
+                padding: 18px;
+            }
+            .qr-code img { max-width: 160px; }
+        }
+
+        @media (max-width: 380px) {
+            .title { font-size: 2.1rem; letter-spacing: 6px; }
+            .download-links { grid-template-columns: 1fr; }
+            .btn { min-height: 56px; }
+        }
+
+        @supports (-webkit-touch-callout: none) {
+            body { -webkit-text-size-adjust: 100%; }
+            .btn { -webkit-tap-highlight-color: transparent; }
         }
     </style>
 </head>
 <body>
-    <div style="text-align: center; font-size: 3rem; font-weight: 800">大板同</div>
-    <div class="section">
-        <p>大板同是一种流行于杭嘉湖交界区域的古老扑克智力运动，相传由三国时期的陆逊发明，距今已有2000年历史。</p>
-        <p>四人同场竞技，讲究策略而非跑得快，上手有一定难度，研究表明有益大脑健康，有效预防阿尔兹海默症。</p>
-        <p>我们致力于保护传承这项非物质文化遗产，丰富业余文化生活，抵制任何赌博行为。</p>
-    </div>
+    <header>
+        <div class="title">大板同</div>
+        <div class="subtitle">传统智力运动</div>
+        <div class="divider">❖</div>
+    </header>
 
     <div class="notice">
         <strong>重要通知：</strong>短信验证码服务已经恢复
     </div>
-    <div class="section highlight-section">
-        <div class="download-links">
-            <a href="http://busytech.cn/pay/test111" target="_blank" class="btn btn-highlight">自助充值</a>
-            <a href="http://lazypos.cn:51888/jc" target="_blank" class="btn btn-success">自助解封/清空成绩</a>
-        </div>
+
+    <div class="section">
+        <p>大板同是一种流行于杭嘉湖交界区域的古老扑克智力运动，相传由三国时期的陆逊发明，距今已有两千年历史。</p>
+        <p>四人竞技，讲究策略而非跑得快，上手有一定难度，想打好对智力有要求，研究表明促进脑力，有效预防阿尔兹海默症。</p>
+        <p>我们致力于保护传承这项非物质文化遗产，丰富业余文化生活，抵制任何赌博行为。</p>
     </div>
 
-    <div class="section success-section">
-        <h2>应用下载</h2>
+    <div class="section">
+        <h2><span class="icon">❖</span>自助服务<span class="icon">❖</span></h2>
         <div class="download-links">
-            <a href="http://fir.dbtong.cn/dbtong" class="btn">安卓版下载</a>
-            <a href="http://b.122.city/dbtong" class="btn">安卓版下载(备用)</a>
-            <a href="https://dbtong.lanzoul.com/iRHEh096iamb" class="btn">电脑版下载</a>
-            <a href="https://note.youdao.com/ynoteshare/mobile.html?id=9de8518b22bb50c399881a9fccff4224" class="btn">iOS安装指南</a>
+            <a href="http://busytech.cn/pay/test111" target="_blank" class="btn">
+                <span class="btn-title">自助充值</span>
+                <span class="btn-sub">在线支付</span>
+            </a>
+            <a href="http://lazypos.cn:51888/jc" target="_blank" class="btn btn-gold">
+                <span class="btn-title">自助解封</span>
+                <span class="btn-sub">清空成绩</span>
+            </a>
         </div>
     </div>
 
     <div class="section">
-        <h2>更新日志</h2>
+        <h2><span class="icon">❖</span>应用下载<span class="icon">❖</span></h2>
+        <div class="download-links">
+            <a href="http://fir.dbtong.cn/dbtong" class="btn">
+                <span class="btn-title">安卓最新版</span>
+                <span class="btn-sub">推荐下载</span>
+            </a>
+            <!-- <a href="http://b.122.city/dbtong" class="btn btn-secondary">
+                <span class="btn-title">安卓备用</span>
+                <span class="btn-sub">镜像下载</span>
+            </a> -->
+            <a href="https://dbtong.lanzoul.com/ipF8g49ncn0h" class="btn btn-secondary">
+                <span class="btn-title">安卓老版</span>
+                <span class="btn-sub">106版 · 兼容旧机</span>
+            </a>
+            <p class="tip">如新版有卡死或不稳定问题，可尝试安装老版本（106）</p>
+            <a href="https://dbtong.lanzoul.com/iRHEh096iamb" class="btn">
+                <span class="btn-title">电脑版</span>
+                <span class="btn-sub">PC 客户端</span>
+            </a>
+            <a href="https://note.youdao.com/ynoteshare/mobile.html?id=9de8518b22bb50c399881a9fccff4224" class="btn btn-secondary">
+                <span class="btn-title">iOS 安装</span>
+                <span class="btn-sub">查看教程</span>
+            </a>
+        </div>
+        
+    </div>
+
+    <div class="section">
+        <h2><span class="icon">❖</span>更新日志<span class="icon">❖</span></h2>
         <div class="update-log">
-			<p><strong>2026.09.10</strong> 支持64位新安卓手机安装</p>
-            <p><strong>2025.12.31</strong> 完善封号系统</p>
-            <p><strong>2025.04.18</strong> 支持自助充值，自助解封</p>
-            <p><strong>2024.03.10</strong> 升级自动封号系统，优化运行环境</p>
-            <p><strong>2023.10.27</strong> 修复积分显示错误</p>
-            <p><strong>2023.07.06</strong> 优化逃跑惩罚机制</p>
+            <p><strong>2026.09.10</strong> <span>支持 64 位新安卓手机安装</span></p>
+            <p><strong>2025.12.31</strong> <span>完善封号系统</span></p>
+            <p><strong>2025.04.18</strong> <span>支持自助充值，自助解封</span></p>
+            <p><strong>2024.03.10</strong> <span>升级自动封号系统，优化运行环境</span></p>
+            <p><strong>2023.10.27</strong> <span>修复积分显示错误</span></p>
+            <p><strong>2023.07.06</strong> <span>优化逃跑惩罚机制</span></p>
         </div>
     </div>
+
     <div class="qr-code">
-            <p>微信扫码获取规则指南</p>
-            <img src="kf.png" class="kf">
-        </div>
+        <p>— 微信扫码获取规则指南 —</p>
+        <img src="kf.png" alt="客服二维码" class="kf">
+    </div>
+
     <footer>
-        <p>浙ICP备17016108号</p>
+        <p>— 浙ICP备17016108号 —</p>
     </footer>
 </body>
 </html>
