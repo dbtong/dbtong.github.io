@@ -107,15 +107,17 @@
 
         .title {
             font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            font-size: 3rem;
-            font-weight: 800;
+            font-size: 8rem;
+            font-weight: 900;
             color: var(--c-zhu);
-            letter-spacing: 8px;
-            margin-bottom: 12px;
-            text-indent: 8px; /* 字间距补偿 */
-            text-shadow: 2px 2px 0 rgba(139, 26, 26, 0.08);
+            letter-spacing: 12px;
+            text-indent: 12px; /* 字间距补偿 */
+            text-shadow:
+                3px 3px 0 rgba(139, 26, 26, 0.12),
+                6px 6px 0 rgba(201, 169, 110, 0.15);
             position: relative;
             display: inline-block;
+            padding: 0 4px;
         }
 
         .title::before,
@@ -125,11 +127,11 @@
             top: 50%;
             transform: translateY(-50%);
             color: var(--c-jin);
-            font-size: 1rem;
-            opacity: 0.7;
+            font-size: 1.4rem;
+            opacity: 0.85;
         }
-        .title::before { left: -32px; }
-        .title::after { right: -32px; }
+        .title::before { left: -44px; }
+        .title::after { right: -44px; }
 
         .subtitle {
             font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
@@ -496,12 +498,12 @@
             header::after { bottom: 14px; right: 8px; }
 
             .title {
-                font-size: 2.4rem;
-                letter-spacing: 6px;
-                text-indent: 6px;
+                font-size: 3.6rem;
+                letter-spacing: 10px;
+                text-indent: 10px;
             }
-            .title::before { left: -24px; }
-            .title::after { right: -24px; }
+            .title::before { left: -34px; font-size: 1.2rem; }
+            .title::after { right: -34px; font-size: 1.2rem; }
 
             .subtitle {
                 font-size: 0.82rem;
@@ -555,7 +557,7 @@
         }
 
         @media (max-width: 380px) {
-            .title { font-size: 2.1rem; letter-spacing: 6px; }
+            .title { font-size: 2.8rem; letter-spacing: 8px; }
             .download-links { grid-template-columns: 1fr; }
             .btn { min-height: 56px; }
         }
@@ -570,12 +572,7 @@
     <header>
         <div class="title">大板同</div>
         <div class="subtitle">传统智力运动</div>
-        <div class="divider">❖</div>
     </header>
-
-    <div class="notice">
-        <strong>重要通知：</strong>短信验证码服务已经恢复
-    </div>
 
     <div class="section">
         <p>大板同是一种流行于杭嘉湖交界区域的古老扑克智力运动，相传由三国时期的陆逊发明，距今已有两千年历史。</p>
